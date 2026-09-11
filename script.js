@@ -620,6 +620,8 @@ function abrirDetalhe(id){
   document.getElementById('dSub').textContent = `Filial: ${op.filial} | Cliente: ${op.cliente}`;
   document.getElementById('dStatus').textContent = op.status;
   document.getElementById('dAction').textContent = op.proxima_acao || '-';
+  document.getElementById('dResponsavel').textContent = op.comprador || '-';
+  document.getElementById('dCodigo').textContent = op.codigo_eletroluz || 'Ainda não cadastrado';
   document.getElementById('dFila').textContent = op.status==='Recebida' ? posicaoNaFila(op) : '-';
   document.getElementById('dUpdate').textContent = new Date(op.atualizado_em).toLocaleString('pt-BR');
   document.getElementById('dAlertasLoja').textContent = op.status==='Aguardando decisão da loja' ? 'Aguardando sua decisão' : '-';
