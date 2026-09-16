@@ -622,7 +622,7 @@ function abrirDetalhe(id){
   document.getElementById('dAction').textContent = op.proxima_acao || '-';
   document.getElementById('dResponsavel').textContent = op.comprador || '-';
   document.getElementById('dCodigo').textContent = op.codigo_eletroluz || 'Ainda não cadastrado';
-  document.getElementById('dFila').textContent = op.status==='Recebida' ? posicaoNaFila(op) : '-';
+  document.getElementById('dFila').textContent = op.status==='Recebida' ? posicaoNaFila(op) : 'Não está mais na fila';
   document.getElementById('dUpdate').textContent = new Date(op.atualizado_em).toLocaleString('pt-BR');
   document.getElementById('dAlertasLoja').textContent = op.status==='Aguardando decisão da loja' ? 'Aguardando sua decisão' : '-';
   document.getElementById('dProximoAlerta').textContent = op.status==='Aguardando decisão da loja' ? 'Em 72h úteis' : '-';
