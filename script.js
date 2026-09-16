@@ -631,6 +631,12 @@ function abrirDetalhe(id){
     ? op.itens.map(it=>`<div class="item-row" style="grid-template-columns:1fr"><div><h4>${escapeHtml(it.descricao)}</h4><div class="small muted">Qtd: ${escapeHtml(it.quantidade)}</div></div></div>`).join('')
     : '<div class="item-empty">Nenhum item cadastrado.</div>';
 
+  // Mensagem/prazo que a Compras escreveu para a loja (campo resposta_loja).
+  // Só aparece quando já existe algo escrito, para não mostrar um card vazio
+  // enquanto a solicitação ainda está em cotação.
+  document.getElementById('dRespostaBox').classList.toggle('hidden', !op.resposta_loja);
+  document.getElementById('dResposta').textContent = op.resposta_loja || '';
+
   const hist = (op.historico||[]).slice().sort((a,b)=>new Date(b.data)-new Date(a.data));
   document.getElementById('dHistorico').innerHTML = hist.length
     ? hist.map(h=>`<div class="timeline-item"><b>${escapeHtml(h.acao)}</b><div class="small muted">${new Date(h.data).toLocaleString('pt-BR')} ${h.detalhe?('— '+escapeHtml(h.detalhe)):''}</div></div>`).join('')
